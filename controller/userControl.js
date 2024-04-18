@@ -350,6 +350,7 @@ router.post("/changepassword",authentication,async(req,res)=>{
     if(result){
       const saltRounds=10;
       const hashedPassword=await bcrypt.hash(newpass, saltRounds)
+      const name=user.userName
       user.password=hashedPassword;
       user.save()
       .then(response=>{
@@ -362,7 +363,7 @@ router.post("/changepassword",authentication,async(req,res)=>{
           to:email,
           subject:'Password Change',
           text:'Password Changed',
-          html:`<b>Dear ${req.userdetail.name}<br> You have successfully changed your password</b>`
+          html:`<b>Dear ${name}<br> You have successfully changed your password</b>`
                 }
 
         sendmail(mailOptions)
@@ -413,7 +414,7 @@ router.post('/editname',authentication,async(req,res)=>{
           to:email,
           subject:'User Name Changed Complete',
           text:'User Name Changed',
-          html:`<b>Dear ${req.userdetail.name}<br> You Have Successfully changed you user name </b>`
+          html:`<b>Dear ${newname}<br> You Have Successfully changed you user name </b>`
                 }
         sendmail(mailOptions)
         console.log("2)sucessfully changed name")
