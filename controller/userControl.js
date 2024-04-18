@@ -623,7 +623,7 @@ router.post('/getcourse/filter',authentication,(req,res)=>{
   })
   
   router.get('/getcourse/level=:level',(req,res)=>{
-     try{res.setHeader('Cache-Control', 'no-store');
+     try{
      let level=req.params.level
      let result_level=[]
    
@@ -639,7 +639,7 @@ router.post('/getcourse/filter',authentication,(req,res)=>{
        res.status(200).json(result_level)
      }else{
        res.json({message:"no result found"})
-     }}catch(error){console.log(erro)}
+     }}catch(error){console.log(error)}
   
   })
   
