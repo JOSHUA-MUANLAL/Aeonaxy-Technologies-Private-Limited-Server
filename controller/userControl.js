@@ -226,7 +226,7 @@ router.post('/joincourse',authentication,async(req,res)=>{
       const existingItem = result.itemlist.find(item => item.course_id ===new_obj.course_id);
       if (existingItem) {
         console.log("2)already joined")
-        res.status(404).json({message:"already Joined"}) // Data already exists, return false
+        res.status(201).json({message:"already Joined"}) // Data already exists, return false
       }else{
         
       result.itemlist.push(new_obj)
