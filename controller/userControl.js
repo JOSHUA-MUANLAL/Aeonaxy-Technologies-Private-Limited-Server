@@ -19,7 +19,9 @@ const viewsPath = path.join(__dirname);
 const secret_key="joshua";
 let results=[]
 
-
+router.get('/',(req,res)=>{
+  res.send("HI, this thing works")
+})
 
 
 //FOR USER AND ADMIN REGISTER
