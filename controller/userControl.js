@@ -20,7 +20,7 @@ const secret_key="joshua";
 let results=[]
 
 router.get('/',(req,res)=>{
-  res.send("HI, this thing works")
+  res.redirect('https://joshua-muanlal.github.io/Aeonaxy-frontend/')
 })
 
 
