@@ -19,6 +19,12 @@ const viewsPath = path.join(__dirname);
 const secret_key="joshua";
 let results=[]
 
+
+
+router.get('/', (req, res) => {
+  // Redirect to the URL
+  res.redirect('https://joshua-muanlal.github.io/Aeonaxy-frontend/');
+});
 //FOR USER AND ADMIN REGISTER
 router.post('/userregister',async(req,res)=>{
     try{
