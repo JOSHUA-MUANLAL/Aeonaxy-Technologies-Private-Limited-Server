@@ -26,7 +26,7 @@ router.get('/',(req,res)=>{
 
 
 //FOR USER AND ADMIN REGISTER
-router.post('/userregister',upload.single('file'),async(req,res)=>{
+router.post('/userregister',async(req,res)=>{
     try{
         const email=req.body.email;
         const name=req.body.name;
@@ -586,7 +586,7 @@ router.post('/sentmessage',authentication,async(req,res)=>{
 
   }catch(error){
     console.log(error)
-    res.status(404).json("error Sending message")
+    res.status(404).json("Error Sending message")
   }
 })
 
