@@ -485,7 +485,7 @@ router.post('/generateotpforregister',async(req,res)=>{
         to:email,
         subject:'One Time Password',
         text:'Passsword OTP',
-        html:`<b>Dear ${result.userName}<br> Your OTP for Password reset is ${otp} </b>`
+        html:`<b>Dear User ${email}<br> Your OTP for Password reset is ${otp} </b>`
               }
         sendmail(mailOptions)
         res.status(200).json({otp:otp})
