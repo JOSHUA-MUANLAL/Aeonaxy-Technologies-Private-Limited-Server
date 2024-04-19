@@ -16,6 +16,7 @@ const userSchema = new mongoose.Schema({
   userName: String,
   phone:Number,
   role:String,
+  dob:String,
   password:String,
   itemlist:[
     { course_id:String,
