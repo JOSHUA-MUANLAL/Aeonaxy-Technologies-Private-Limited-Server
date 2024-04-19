@@ -10,6 +10,7 @@ const validate=require('./sendmail')
 const authentication=require('../middleware/authentication')
 const axios = require('axios');
 
+
 const sendmail=require('./sendmail');
 const { response } = require("express");
 
@@ -25,7 +26,7 @@ router.get('/',(req,res)=>{
 
 
 //FOR USER AND ADMIN REGISTER
-router.post('/userregister',async(req,res)=>{
+router.post('/userregister',upload.single('file'),async(req,res)=>{
     try{
         const email=req.body.email;
         const name=req.body.name;
