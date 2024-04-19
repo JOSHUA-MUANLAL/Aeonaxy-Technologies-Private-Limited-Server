@@ -525,7 +525,7 @@ try{
 //REQUEST TO REMOVE A SPECIFIC USER WITH REASON
 router.post('/removeuser',authentication,async(req,res)=>{
   try{
-    if(userdetail.role=='admin'){
+    if(req.userdetail.role=='admin'){
       let password=req.body.confirmpassword;
       let reason=req.body.reason
       let email=req.body.email;
