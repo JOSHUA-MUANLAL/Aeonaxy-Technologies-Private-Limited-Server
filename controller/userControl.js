@@ -556,7 +556,7 @@ router.post('/removeuser',authentication,async(req,res)=>{
       res.status(201).json({message:"Access Denied"})
     }
   }catch(error){
-console.log(erro)}
+console.log(error)}
 })
 
 
