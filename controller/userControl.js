@@ -547,6 +547,7 @@ router.post('/removeuser',authentication,async(req,res)=>{
                 }
 
           sendmail(mailOptions)
+          res.status(200).json({message:"User Removed"})
 
       }else{
         res.status(201).json({message:"Unable to remove"})
