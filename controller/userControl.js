@@ -67,13 +67,13 @@ router.post('/userregister',upload.single('file'),async(req,res)=>{
                     console.log("4)db saved")
                     let mailOptions={
                       from:{
-                          name:'Joshua',
+                          name:'JCourse',
                           address:'joshua00521202021@msijanakpuri.com'
                       },
                       to:email,
                       subject:'Registration Complete',
                       text:'Registration Complete',
-                      html:`<b>Dear ${name}<br> Thank you For Registering With Us</b>`
+                      html:`<b>Welcome! ${name}<br> Thank you For Registering With Us<br><br>Hope You will Love our webpage</b>`
                             }
                     sendmail(mailOptions)
                    
@@ -311,7 +311,7 @@ router.post('/resetpassword',async(req,res)=>{
       .then(response=>{
         let mailOptions={
           from:{
-              name:'Joshua Business',
+              name:'JCourse',
               address:'joshua00521202021@msijanakpuri.com'
           },
           to:email,
@@ -358,7 +358,7 @@ router.post("/changepassword",authentication,async(req,res)=>{
 
         let mailOptions={
           from:{
-              name:'Joshua Business',
+              name:'JCourse',
               address:'joshua00521202021@msijanakpuri.com'
           },
           to:email,
@@ -409,7 +409,7 @@ router.post('/editname',authentication,async(req,res)=>{
       .then(response=>{
         let mailOptions={
           from:{
-              name:'Joshua',
+              name:'JCourse',
               address:'joshua00521202021@msijanakpuri.com'
           },
           to:email,
@@ -448,7 +448,7 @@ router.post('/generateotp',async(req,res)=>{
 
       let mailOptions={
         from:{
-            name:'Joshua',
+            name:'JCourse',
             address:'joshua00521202021@msijanakpuri.com'
         },
         to:email,
@@ -480,7 +480,7 @@ router.post('/generateotpforregister',async(req,res)=>{
 
       let mailOptions={
         from:{
-            name:'Joshua',
+            name:'JCourse',
             address:'joshua00521202021@msijanakpuri.com'
         },
         to:email,
@@ -537,7 +537,7 @@ router.post('/removeuser',authentication,async(req,res)=>{
         await UserModel.deleteOne({userEmail:email})
         let mailOptions={
           from:{
-              name:'Joshua Business',
+              name:'JCourse',
               address:'joshua00521202021@msijanakpuri.com'
           },
           to:email,
@@ -559,6 +559,35 @@ router.post('/removeuser',authentication,async(req,res)=>{
     }
   }catch(error){
 console.log(error)}
+})
+
+//TO SEND MESSAGE TO USER
+
+router.post('/sentmessage',authentication,async(req,res)=>{
+  try{
+    const email=req.body.email
+    const message=req.body.message;
+    const subject=req.body.subject;
+
+    let mailOptions={
+      from:{
+          name:'JCourse',
+          address:'joshua00521202021@msijanakpuri.com'
+      },
+      to:email,
+      subject:subject,
+      text:'',
+      html:`<b>Dear User ${email}<br>  </b><br>
+      <b><u>Message<u>:</b><i>${message}</i>`
+            }
+
+      sendmail(mailOptions)
+      res.status(200).json({message:"User Removed"})
+
+  }catch(error){
+    console.log(error)
+    res.status(404).json("error Sending message")
+  }
 })
 
 
